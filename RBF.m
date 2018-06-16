@@ -1,5 +1,5 @@
-%Autor: Denilson Gomes Vaz da Silva
-%Graduando em Engenharia da Computação
+%Autores: Denilson Gomes Vaz da Silva e Sérgio Saraiva de Sousa Neto
+%Graduandos em Engenharia da Computação
 %Controle de Sistemas Dinamicos - Prof. Dr. Vandilberto
 %Programa para calcular a taxa de acerto da RBF na classificação da base
 %iris_log
@@ -8,13 +8,12 @@ clear
 clc
 
 load iris_log.dat; %Carrega a base de dados
-
 base = iris_log; %base recebe a base de dados
 [tam, ~] = size(iris_log); %tam recebe o numero de elementos
 x = base(:,1:4)'; %x recebe todos os atributos
 y = base(:,5:7)'; %y recebe todas as classes
-
 tamTreino = ceil(0.8*tam); %tamTreino calcula os 80% do treino
+
 for i=1:50 %de 1 ate 50
     [X,Y] = permuta(x,y); %X recebe x permutado e Y recebe y permutado
     net = newrb(X(:,1:tamTreino),Y(:,1:tamTreino)); %criamos uma RBF com os conjuntos treino X e Y
